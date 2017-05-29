@@ -17,7 +17,7 @@ In this version of helicopter, users will be able to:
 
 Below is an example of the game in progress.  The initial screen will be similar, but instead of the plane and obstacles, the screen will display "Click to Start...and keep clicking!"
 
-![](Wireframe.png)
+![](docs/Wireframe.png)
 
 ## Architecture and Technologies
 
