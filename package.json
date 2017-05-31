@@ -1,0 +1,24 @@
+{
+  "name": "JavascriptProject",
+  "version": "1.0.0",
+  "description": "## Background",
+  "main": "practice.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiop77a/JSHeli.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jiop77a/JSHeli/issues"
+  },
+  "homepage": "https://github.com/jiop77a/JSHeli#readme"
+}
