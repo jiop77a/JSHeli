@@ -11,6 +11,12 @@ class Copter {
   move() {
     this.pos += 1;
   }
+
+  collisionChecker(Obstacle) {
+    if (this.pos < 50 || this.pos > 430) {
+      return true;
+    }
+  }
 }
 
 module.exports = Copter;

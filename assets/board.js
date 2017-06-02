@@ -1,8 +1,10 @@
 const Copter = require("./copter");
+const Obstacle = require("./obstacle");
 
 class Board {
   constructor() {
     this.copter = new Copter();
+    this.obstacle = new Obstacle();
 
   }
 
@@ -10,6 +12,7 @@ class Board {
     this.drawBoard(ctx);
     this.drawBorders(ctx);
     this.copter.draw(ctx);
+    this.obstacle.draw(ctx);
   }
 
   drawBoard(ctx) {
@@ -29,6 +32,14 @@ class Board {
 
   update() {
     this.copter.move();
+    this.obstacle.move();
+    this.hasCollided();
+  }
+
+  hasCollided() {
+    if (this.copter.collisionChecker()) {
+      alert("collision!");
+    }
   }
 }
 module.exports = Board;
