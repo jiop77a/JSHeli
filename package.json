@@ -2,7 +2,7 @@
   "name": "JavascriptProject",
   "version": "1.0.0",
   "description": "## Background",
-  "main": "practice.js",
+  "main": "heli.js",
   "directories": {
     "doc": "docs"
   },

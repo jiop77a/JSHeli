@@ -1,7 +1,6 @@
 const Board = require("./board");
 
 
-
 // var firstClick = true;
 // let copterPos = 50;
 // var falling;
@@ -39,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
   canvasEl.width = 1000;
   canvasEl.height = 500;
   const ctx = canvasEl.getContext("2d");
-  new Board(ctx).start();
+  new Board(ctx, canvasEl).start();
 });
 
 // canvasEl.addEventListener("click", () => {

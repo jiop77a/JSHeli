@@ -1,10 +1,11 @@
 const Copter = require("./copter");
 
 class Board {
-  constructor(ctx, copter) {
+  constructor(ctx, canvasEl) {
     this.ctx = ctx;
-    this.copter = new Copter(ctx, 50);
+    this.copter = new Copter(this.ctx, 50);
     this.firstClick = true;
+    this.canvasEl = canvasEl;
   }
 
   drawBoard() {
@@ -20,19 +21,22 @@ class Board {
     ctx.fillRect(0, 450, 1000, 50);
   }
 
+  clickEvent() {
+    if (this.firstClick) {
+      this.copter.draw();
+      this.firstClick = false;
+    } else {
+      this.copter.bounce();
+    }
+
+  }
   start() {
     const copter = this.copter;
+    const canvasEl = this.canvasEl;
+
     this.drawBoard();
     this.drawBorders();
-    this.ctx.addEventListener("click", () => {
-      if (this.firstClick) {
-        copter.draw();
-        this.firstClick = false;
-      } else {
-        copter.bounce();
-      }
-    });
+    canvasEl.addEventListener("click", this.clickEvent.bind(this));
   }
 }
-
 module.exports = Board;
