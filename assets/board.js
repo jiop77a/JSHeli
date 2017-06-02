@@ -1,42 +1,34 @@
 const Copter = require("./copter");
 
 class Board {
-  constructor(ctx, canvasEl) {
-    this.ctx = ctx;
-    this.copter = new Copter(this.ctx, 50);
-    this.firstClick = true;
-    this.canvasEl = canvasEl;
+  constructor() {
+    this.copter = new Copter();
+
   }
 
-  drawBoard() {
-    let ctx = this.ctx;
+  draw(ctx) {
+    this.drawBoard(ctx);
+    this.drawBorders(ctx);
+    this.copter.draw(ctx);
+  }
+
+  drawBoard(ctx) {
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, 1000, 500);
   }
 
-  drawBorders() {
-    let ctx = this.ctx;
+  drawBorders(ctx) {
     ctx.fillStyle = "blue";
     ctx.fillRect(0, 0, 1000, 50);
     ctx.fillRect(0, 450, 1000, 50);
   }
 
   clickEvent() {
-    if (this.firstClick) {
-      this.copter.draw();
-      this.firstClick = false;
-    } else {
-      this.copter.bounce();
-    }
-
+    this.copter.pos -= 30;
   }
-  start() {
-    const copter = this.copter;
-    const canvasEl = this.canvasEl;
 
-    this.drawBoard();
-    this.drawBorders();
-    canvasEl.addEventListener("click", this.clickEvent.bind(this));
+  update() {
+    this.copter.move();
   }
 }
 module.exports = Board;
