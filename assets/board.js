@@ -27,7 +27,7 @@ class Board {
   }
 
   clickEvent() {
-    this.copter.pos -= 30;
+    this.copter.pos[1] -= 30;
   }
 
   update() {
