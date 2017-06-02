@@ -13,12 +13,26 @@ class Copter {
   }
 
   collisionChecker(obstacle) {
-    if (this.pos[1] < 50 || this.pos[1] > 430) {
+    let copterTop = this.pos[1];
+    let copterBottom = this.pos[1] + 20;
+    let copterFront = this.pos[0] + 20;
+    let copterRear = this.pos[0];
+    //check against borders
+    if (copterTop < 50 || copterBottom > 450) {
       return true;
-    } else if ((this.pos[1] < 170 && obstacle.pos < 120)
-              || (this.pos[1] > 150 && obstacle.pos < 120)) {
-      return true;
+    //check against obstacle
+    } else {
+        let obstiBottom = obstacle.pos[1] + obstacle.height;
+        let obstiFront = obstacle.pos[0];
+        let obstiRear = obstacle.pos[0] + obstacle.width;
+        if (
+            (copterTop < obstiBottom) &&
+           !((copterRear > obstiRear) || (copterFront < obstiFront))
+            ) {
+             return true;
+           }
     }
+    return false;
   }
 }
 
