@@ -12,8 +12,11 @@ class Copter {
     this.pos += 1;
   }
 
-  collisionChecker(Obstacle) {
+  collisionChecker(obstacle) {
     if (this.pos < 50 || this.pos > 430) {
+      return true;
+    } else if ((this.pos < 170 && obstacle.pos < 120)
+              || (this.pos > 150 && obstacle.pos < 120)){
       return true;
     }
   }

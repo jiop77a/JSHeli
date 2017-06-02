@@ -37,7 +37,7 @@ class Board {
   }
 
   hasCollided() {
-    if (this.copter.collisionChecker()) {
+    if (this.copter.collisionChecker(this.obstacle)) {
       alert("collision!");
     }
   }
